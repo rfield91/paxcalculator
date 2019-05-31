@@ -1,0 +1,61 @@
+:root {
+    /* --primary-color: rgb(116, 143, 252);
+    --dark-color: rgb(59, 72, 128); */
+    --primary-color: rgb(134, 142, 150);
+    --dark-color: rgb(52, 58, 64);
+    --text-color: rgb(233, 236, 239);
+}
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.categories .category {
+    flex: 0 0 80%;
+    background-color: var(--primary-color);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 0.5em;
+}
+
+.categories .category h3 {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.categories .category .classes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.categories .category .classes .class-result {
+    flex: 0 0 49%;
+    background-color: var(--dark-color);
+    border-radius: 0.3em;
+    font-size: 1.3em;
+    margin: 5px 0;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories .category .classes .class-result > div {
+    padding: 10px;
+}
+
+.class-name {
+    font-size: 0.8em;
+    margin: auto 0;
+}
+
+.time {
+    font-weight: bold;
+    float: right;
+}
