@@ -14,7 +14,6 @@ class Calculator extends React.Component {
     }
 
     onClassChange = event => {
-        console.log(event.target.value);
         this.setState({
             selectedClass: event.target.value
         });
@@ -41,6 +40,8 @@ class Calculator extends React.Component {
     render() {
         var options = [];
 
+        var paxTime = (this.state.time * this.state.selectedClass).toFixed(3);
+
         for (const category in this.props.paxValues) {
             var paxClasses = this.props.paxValues[category];
 
@@ -65,23 +66,29 @@ class Calculator extends React.Component {
 
         return (
             <div className="calculator">
-                <div>
-                    <input
-                        type="number"
-                        step="any"
-                        placeholder="Your time"
-                        value={this.state.time}
-                        onChange={this.onTimeChange}
-                    />
+                <div className="inputs">
+                    <div>
+                        <input
+                            type="number"
+                            step="any"
+                            placeholder="Your time"
+                            value={this.state.time}
+                            onChange={this.onTimeChange}
+                        />
+                    </div>
+                    <div>
+                        <select
+                            className="ui selection dropdown"
+                            value={this.state.selectedClass}
+                            onChange={this.onClassChange}
+                        >
+                            {options}
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <select
-                        className="ui selection dropdown"
-                        value={this.state.selectedClass}
-                        onChange={this.onClassChange}
-                    >
-                        {options}
-                    </select>
+                <div className="pax-time">
+                    <h3>PAX Time</h3>
+                    <div>{paxTime}</div>
                 </div>
             </div>
         );

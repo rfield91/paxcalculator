@@ -3,8 +3,6 @@ import "./Output.css";
 
 class Output extends React.Component {
     render() {
-        console.log(this.props);
-
         var categories = [];
 
         for (var category in this.props.paxValues) {
@@ -36,7 +34,11 @@ class Output extends React.Component {
             );
         }
 
-        return <div className="categories">{categories}</div>;
+        return (
+            <div className="output">
+                <div className="categories">{categories}</div>
+            </div>
+        );
     }
 }
 

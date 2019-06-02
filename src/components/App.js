@@ -27,9 +27,9 @@ class App extends React.Component {
                 { Name: "STH", Pax: 0.813 }
             ],
             CAM: [
-                { Name: "CAM-T", Pax: 0.812 },
-                { Name: "CAM-C", Pax: 0.82 },
-                { Name: "CAM-S", Pax: 0.833 }
+                { Name: "CAMT", Pax: 0.812 },
+                { Name: "CAMC", Pax: 0.82 },
+                { Name: "CAMS", Pax: 0.833 }
             ],
             "Street Prepared": [
                 { Name: "SSP", Pax: 0.853 },
@@ -75,7 +75,6 @@ class App extends React.Component {
     };
 
     onCalculate = data => {
-        // console.log("Data: ", data);
         this.setState({
             time: data.time,
             selectedClass: data.selectedClass
