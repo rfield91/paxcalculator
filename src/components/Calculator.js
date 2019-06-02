@@ -13,14 +13,28 @@ class Calculator extends React.Component {
         this.state.selectedClass = this.props.paxValues["Street"][0].Pax;
     }
 
+    componentDidMount() {
+        if (localStorage.hasOwnProperty("classPax")) {
+            var classPax = localStorage.getItem("classPax");
+
+            this.setState({
+                selectedClass: classPax
+            });
+        }
+    }
+
     onClassChange = event => {
+        var classPax = event.target.value;
+
         this.setState({
-            selectedClass: event.target.value
+            selectedClass: classPax
         });
+
+        localStorage.setItem("classPax", classPax);
 
         this.props.onCalculate({
             time: this.state.time,
-            selectedClass: event.target.value
+            selectedClass: classPax
         });
     };
 
