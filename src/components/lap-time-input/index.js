@@ -48,6 +48,7 @@ export const LapTimeInput = ({
                         event.target.setSelectionRange(length, length);
                         if (event.key === 'Enter') {
                             event.target.blur();
+                            return;
                         }
                     }}
                     onKeyPress={(event) => {
@@ -62,6 +63,11 @@ export const LapTimeInput = ({
                         const length = event.target.value.length;
                         event.target.setSelectionRange(length, length);
 
+                        const patternRegExp = new RegExp(event.target.pattern + '*$');
+                        if(event.target.value && !patternRegExp.exec(event.target.value)[0]){
+                            event.preventDefault();
+                            return false;
+                        }
                         if (onChange) {
                             onChange(event);
                         }
@@ -69,7 +75,7 @@ export const LapTimeInput = ({
                     type='text'
                     min='0'
                     inputMode='decimal'
-                    pattern='[-+]?[0-9]*[.,]?[0-9]+'
+                    pattern='[0-9\.]'
                     onFocus={(event) => {
                         const length = event.target.value.length;
                         event.target.setSelectionRange(length, length);
