@@ -1,0 +1,72 @@
+@import (reference) '../../styles/variables.less';
+
+.c-horizontal-slider {
+    --c-horizontal-slider__margin: var(--margin);
+    --c-horizontal-slider__gap: calc(var(--margin) / 4);
+    --c-horizontal-slider__show: 1;
+    --c-horizontal-slider__item-columns: 4;
+    --c-horizontal-slider__item-size: 4;
+
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--c-horizontal-slider__margin);
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    //padding-left: calc(var(--c-horizontal-slider__margin) * 2);
+    padding-left: var(--c-horizontal-slider__margin);
+    padding-right: var(--c-horizontal-slider__margin);
+
+    &__items {
+        min-width: calc(100% + 2px);
+        display: grid;
+        grid-template-rows: auto;
+        grid-auto-columns: 8em;
+        grid-auto-columns: calc(
+            (
+                    100% -
+                        (
+                            var(--c-horizontal-slider__gap) *
+                                (var(--c-horizontal-slider__show) - 1)
+                        )
+                ) / var(--c-horizontal-slider__show)
+        );
+        //  .columns(@columns: 12, @totalColumns: 12, @gutter: var(--layout-column-gutter), @area: 100%, @outsideGutter: 0em) {
+        grid-auto-columns: calc(
+            columns(
+                var(--c-horizontal-slider__item-size),
+                var(--c-horizontal-slider__item-columns),
+                var(--c-horizontal-slider__gap)
+            )
+        );
+        grid-gap: var(--c-horizontal-slider__gap);
+        grid-auto-flow: column;
+        scroll-snap-align: start;
+        //transform: translate(calc(var(--c-horizontal-slider__margin) * -1), 0);
+        //min-width: calc(100% + var(--c-horizontal-slider__margin) + 1px);
+        //padding-left: var(--c-horizontal-slider__margin);
+        //padding-right: var(--c-horizontal-slider__margin);
+
+        & > * {
+            margin: 0;
+        }
+
+        &::after {
+            content: '';
+            width: calc(
+                var(--c-horizontal-slider__margin) -
+                    var(--c-horizontal-slider__gap)
+            );
+            min-width: 1px;
+            display: block;
+        }
+    }
+
+    &__item {
+        scroll-snap-align: start;
+    }
+}

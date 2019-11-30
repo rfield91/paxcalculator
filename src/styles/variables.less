@@ -1,0 +1,99 @@
+@import '~open-color/open-color.less';
+
+.function {
+    .rem(@size) {
+        return: (@size / 16)+0rem;
+    }
+    .em(@size) {
+        return: (@size / 16)+0em;
+    }
+    .columns(@columns: 12, @totalColumns: 12, @gutter: var(--layout-column-gutter), @area: 100%, @outsideGutter: 0em) {
+        return: ~'((((@{area} - (@{outsideGutter} * 2) - ((@{totalColumns} - 1) * @{gutter}) ) / @{totalColumns}) * @{columns}) + ((@{columns} - 1) * @{gutter}))';
+    }
+}
+
+@bp-sm: 640;
+@bp-md: 767;
+@bp-lg: 980;
+@bp-xl: 1440;
+@layout-max-width: 1440;
+@brand-primary: #000;
+@brand-primary-contrast: #fff;
+
+.focus() {
+    outline: 1px dotted currentColor;
+    outline-offset: -2px;
+}
+
+.default-theme() {
+    --link: @brand-primary;
+    --link-focus: @brand-primary;
+    --background: #f6f6f6;
+    --background: #fff;
+    --background-alt: #f6f6f6;
+    --background-alt: #fff;
+    --stack: 1.6em;
+
+    --color: #000;
+    --shade: #fff;
+    --margin: rem(16);
+    --separator: hsla(204, 25%, 91%, 1);
+    --section-header-color: hsla(0, 0, 50%, 1);
+    --inset-background: #f7f7f7;
+    --inset-color: #000;
+
+    --action-color: @brand-primary;
+    --action-contrast-color: @brand-primary-contrast;
+    --action-focus-color: darken(@brand-primary, 5%);
+    --action-focus-contrast-color: @brand-primary-contrast;
+    --border-color: #e2e2e2;
+    --border-width: 1px;
+    --border-radius: 0;
+    --color: #000;
+
+    --header-background: #fff;
+    --header-border-color: darken(#fff, 5%);
+    --header-color: @oc-blue-7;
+
+    --tab-bar-background: #fff;
+    --tab-bar-color: #999999;
+    --tab-bar-border-color: hsla(204, 25%, 91%, 1);
+    --tab-bar-active-color: @oc-blue-7;
+
+    --c-table-background: #f7f7f7;
+    --c-table-hover-background: darken(#f7f7f7, 2.5%);
+    --c-table-color: inherit;
+    --c-table-border: var(--separator);
+
+    --c-button-primary-background: @oc-blue-7;
+    --c-button-primary-color: #fff;
+    --c-button-primary-hover-background: @oc-blue-7;
+    --c-button-primary-hover-color: #fff;
+}
+
+.dark-theme() {
+    .default-theme();
+    --background: #000;
+    --background-alt: #000;
+    --color: #a9a9a9;
+    --border-color: #676767;
+    --shade: #383838;
+    --section-header-color: #999;
+
+    --separator: #1b1b1b;
+    --inset-background: #151515;
+    --inset-color: #fff;
+
+    --header-background: #000;
+    --header-border-color: #1b1b1b;
+    --header-color: @oc-blue-6;
+
+    --tab-bar-background: #000;
+    --tab-bar-color: #777;
+    --tab-bar-border-color: #1b1b1b;
+
+    --c-table-background: #151515;
+    --c-table-hover-background: lighten(#151515, 2.5%);
+    --c-table-color: inherit;
+    --c-table-border: lighten(#151515, 6.5%);
+}

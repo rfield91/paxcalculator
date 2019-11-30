@@ -1,0 +1,33 @@
+@import (reference) '../../styles/variables.less';
+@import '../../styles/content/links.less';
+
+.c-icon {
+    svg {
+        position: relative;
+        top: var(--c-icon-offset-top, 0.125em);
+        width: 1em;
+        height: 1em;
+    }
+
+    &--mdi {
+        path {
+            fill: currentColor;
+        }
+    }
+
+    &--svg {
+        *[stroke='#0067B1'] {
+            stroke: var(--c-icon--secondary-color, #0e99e7);
+        }
+        *[fill='#0067B1'] {
+            fill: var(--c-icon--secondary-color, #0e99e7);
+        }
+
+        *[stroke='#00246A'] {
+            stroke: var(--c-icon--primary-color, #00246a);
+        }
+        *[fill='#00246A'] {
+            fill: var(--c-icon--primary-color, #00246a);
+        }
+    }
+}

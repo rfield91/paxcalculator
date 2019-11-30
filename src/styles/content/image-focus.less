@@ -1,0 +1,63 @@
+*[data-focus] {
+    background-size: cover;
+    background-position: center;
+    &[data-focus='center'] {
+        background-position: center !important;
+    }
+    &[data-focus='top left'] {
+        background-position: left top !important;
+    }
+    &[data-focus='top'] {
+        background-position: top !important;
+    }
+    &[data-focus='top right'] {
+        background-position: right top !important;
+    }
+    &[data-focus='right'] {
+        background-position: right !important;
+    }
+    &[data-focus='bottom right'] {
+        background-position: left top !important;
+    }
+    &[data-focus='bottom'] {
+        background-position: bottom !important;
+    }
+    &[data-focus='bottom left'] {
+        background-position: left bottom !important;
+    }
+    &[data-focus='left'] {
+        background-position: left !important;
+    }
+}
+
+img[data-focus] {
+    object-fit: cover;
+    object-position: center;
+    &[data-focus='center'] {
+        object-position: center !important;
+    }
+    &[data-focus='top left'] {
+        object-position: left top !important;
+    }
+    &[data-focus='top'] {
+        object-position: top !important;
+    }
+    &[data-focus='top right'] {
+        object-position: right top !important;
+    }
+    &[data-focus='right'] {
+        object-position: right !important;
+    }
+    &[data-focus='bottom right'] {
+        object-position: left top !important;
+    }
+    &[data-focus='bottom'] {
+        object-position: bottom !important;
+    }
+    &[data-focus='bottom left'] {
+        object-position: left bottom !important;
+    }
+    &[data-focus='left'] {
+        object-position: left !important;
+    }
+}

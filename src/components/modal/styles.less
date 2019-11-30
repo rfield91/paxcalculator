@@ -1,0 +1,40 @@
+@import (reference) '../../styles/variables.less';
+@import '../../styles/content/links.less';
+
+.c-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    margin: 0;
+    overflow: hidden;
+    transform: translate3d(0, calc(var(--vh) * 0), 0);
+    background-color: var(--background);
+
+    &--enter {
+        transform: translate3d(0, calc(var(--vh) * 100), 0);
+    }
+
+    &--enter-active {
+        transform: translate3d(0, calc(var(--vh) * 0), 0);
+        transition: transform 300ms;
+    }
+
+    &--exit {
+        transform: translate3d(0, calc(var(--vh) * 0), 0);
+    }
+
+    &--exit-active {
+        transform: translate3d(0, calc(var(--vh) * 100), 0);
+        transition: transform 300ms;
+    }
+
+    &__inside {
+        overflow: auto;
+        height: 100%;
+        position: relative;
+    }
+}

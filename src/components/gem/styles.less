@@ -1,0 +1,55 @@
+@import (reference) '../../styles/variables.less';
+@import '../../styles/content/links.less';
+@import '~open-color/open-color.less';
+
+.c-gem {
+    display: inline-block;
+    position: relative;
+    line-height: 1;
+
+    & + *,
+    * + & {
+        margin-top: 0;
+    }
+
+    &__background {
+        margin: 0;
+        background-color: var(--c-gem--background, @oc-red-9);
+        border-radius: 999px;
+        position: absolute;
+        top: em(-2);
+        bottom: em(-2);
+        left: 0;
+        right: 0;
+    }
+
+    &__value {
+        position: relative;
+        font-weight: 600;
+        margin: 0;
+        color: var(--c-gem--color, contrast(@oc-red-9, #000, #fff));
+        text-rendering: optimizeSpeed;
+        -webkit-font-smoothing: antialiased;
+        white-space: nowrap;
+        text-align: center;
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+    }
+}
+
+.c-gemify {
+    position: relative;
+
+    &__content {
+        margin: 0;
+        flex: 1;
+    }
+
+    &__gem {
+        margin: 0;
+        position: absolute;
+        font-size: em(6);
+        right: -1em;
+        top: -0.25em;
+    }
+}

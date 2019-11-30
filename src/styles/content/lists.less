@@ -1,0 +1,90 @@
+@import '../variables.less';
+
+.comp-faq__answer,
+.main-content,
+.comp-main-content,
+.comp-generic-content {
+    ol,
+    ul {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        * + * {
+            margin-top: 0.5em;
+            //margin-top: ~'calc(@{vertical-gutter}/2)';
+        }
+    }
+    li {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+        list-style: none;
+        position: relative;
+    }
+
+    ol {
+        counter-reset: new-counter;
+        li:not(:last-child) {
+            &::after {
+                content: '';
+                display: block;
+                //height: ~'calc(@{vertical-gutter}/2)';
+            }
+        }
+    }
+    ol > li {
+        padding-left: 1em;
+        counter-increment: new-counter;
+        display: table-row;
+        & > ul,
+        & > ol {
+            margin-top: 0.5em;
+            //margin-top: ~'calc(@{vertical-gutter}/2)';
+        }
+        &::before {
+            display: table-cell;
+            content: counter(new-counter) '.';
+            position: relative;
+            color: var(--color-action);
+            left: 0;
+            opacity: 1;
+            box-sizing: border-box;
+            font-weight: bold;
+            text-align: right;
+            min-width: 1em;
+            padding-right: 0.5em;
+        }
+        ol > li::before {
+            font-weight: normal;
+        }
+        ol > li ol > li::before {
+            //opacity: .5;
+        }
+    }
+
+    ul > li {
+        @bulletSize: em(5);
+        padding-left: 1em;
+        & > ol,
+        & > ul {
+            margin-top: 0.5em;
+            //margin-top: ~'calc(@{vertical-gutter}/2)';
+        }
+        &::before {
+            content: '•';
+            display: inline-block;
+            color: var(--color-action);
+            position: absolute;
+            top: 0em;
+            left: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        ul > li::before {
+            content: '∘';
+        }
+        ul > li ul > li::before {
+            content: '•';
+        }
+    }
+}

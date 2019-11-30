@@ -1,0 +1,57 @@
+@import (reference) '../../styles/variables.less';
+@import (reference) '../../styles/content/links.less';
+
+.c-large-header {
+    //margin-top: calc(var(--header-height, 0) * -1);
+    margin-top: 0;
+    color: var(--header-color);
+    position: relative;
+    background-color: var(--header-background);
+    border-bottom: 1px solid var(--header-border-color);
+
+    &--hidden {
+        visibility: hidden;
+    }
+
+    &__inside {
+        position: relative;
+        margin: 0;
+        padding-left: var(--margin);
+        padding-right: var(--margin);
+        padding-top: var(--header-height, 0);
+        padding-top: 0;
+        padding-bottom: calc(var(--stack) / 2);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: flex-end;
+        grid-column-gap: 1em;
+    }
+
+    &__before {
+        font-size: em(14);
+        line-height: 1.2;
+        color: #6cc2ff;
+    }
+
+    &__before + * {
+        margin-top: 0rem;
+    }
+
+    &__main {
+        font-size: 2em;
+        font-weight: 900;
+        line-height: 1.2;
+        margin-bottom: -0.18em;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__accessory {
+        margin: 0;
+        a {
+            .link-reset();
+        }
+    }
+}
