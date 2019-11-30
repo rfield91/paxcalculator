@@ -110,7 +110,7 @@ export default class HomeScreen extends React.Component {
         this.props.dispatch(
             addLap({
                 time: this.state.time,
-                paxClass: this.state.paxClass,
+                paxClass: this.state.paxClass || this.props.lastPaxClass,
                 date: new Date().toString(),
             })
         );
