@@ -50,6 +50,7 @@ export default async (env, config, options) => {
             short_name: 'Pax',
             filename: 'manifest.json',
             display: 'standalone',
+            fingerprints: false,
             publicPath: '/',
             ios: {
                 'apple-mobile-web-app-status-bar-style': 'default',
