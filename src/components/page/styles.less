@@ -1,0 +1,55 @@
+@import (reference) '../../styles/variables.less';
+@import (reference) '../../styles/content/links.less';
+
+.c-page {
+    color: var(--color);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding-top: var(--header-height, 0px);
+    padding-bottom: calc(var(--c-page--safe-area-bottom, 0) + 0px);
+    display: flex;
+    flex-direction: column;
+
+    --c-page--height: calc(
+        ((var(--vh, 1vh) * 100)) - var(--header-height, 0px) -
+            (var(--c-page--safe-area-bottom, 0) + 0px)
+    );
+
+    &__inside {
+        position: relative;
+        flex: 1;
+        overflow: auto;
+        overflow-x: hidden;
+        //overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__scroll {
+        display: flex;
+        flex-direction: column;
+        background: var(--background);
+        padding-top: var(--stack);
+        padding-bottom: var(--stack);
+        min-height: calc(100%);
+
+        html.platform-ios & {
+            min-height: calc(100% + 1px);
+        }
+    }
+
+    &--remove-top-padding &__scroll {
+        padding-top: 0;
+    }
+
+    &--remove-bottom-padding &__scroll {
+        padding-bottom: 0;
+    }
+
+    &--no-scroll &__inside {
+        overflow: hidden;
+    }
+    &--no-scroll &__scroll {
+        min-height: calc(100%);
+    }
+}

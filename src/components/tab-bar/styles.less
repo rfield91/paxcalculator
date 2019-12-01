@@ -1,0 +1,72 @@
+@import (reference) '../../styles/variables.less';
+@import (reference) '../../styles/content/links.less';
+@import (reference) '~open-color/open-color.less';
+
+.c-tab-bar {
+    margin: 0;
+    background-color: var(--tab-bar-background);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+    border-top: 1px solid var(--tab-bar-border-color);
+
+    &__tabs > * {
+        margin-top: 0;
+    }
+
+    &__tabs {
+        display: flex;
+    }
+
+    &__tab {
+        .link-reset();
+
+        --c-icon-offset-top: 0;
+
+        svg {
+            display: block;
+        }
+
+        flex: 1;
+        display: block;
+        text-align: center;
+        padding-top: calc(0.5em);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 0px);
+        line-height: 1;
+        min-height: rem(62);
+
+        &,
+        &:active,
+        &:hover,
+        &:focus {
+            color: var(--tab-bar-color);
+        }
+
+        &__icon {
+            margin: 0;
+            font-size: 1.75em;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__label {
+            margin: 0;
+            font-size: rem(10);
+            padding-top: 0.3em;
+        }
+
+        &--active {
+            &,
+            &:active,
+            &:hover,
+            &:focus {
+                color: #0085e4;
+                color: #0067b1;
+                color: var(--tab-bar-active-color);
+                //color: #00246A;
+            }
+        }
+    }
+}

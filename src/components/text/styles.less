@@ -1,0 +1,22 @@
+@import (reference) '../../styles/variables.less';
+@import '../../styles/content/links.less';
+@import '~open-color/open-color.less';
+
+.c-text {
+    .link-reset();
+
+    &--small {
+        font-size: rem(12);
+    }
+
+    &--light {
+        opacity: 0.75;
+    }
+
+    &--truncate {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+}

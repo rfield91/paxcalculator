@@ -1,0 +1,39 @@
+@import '../variables.less';
+
+h1 {
+    font-family: 'Open Sans Condensed';
+    font-weight: 900;
+    line-height: 1.1;
+    font-size: em(24);
+    color: inherit;
+    @media (min-width: rem(@bp-sm)) {
+        font-size: em(24 * 1.5);
+    }
+    @media (min-width: rem(@bp-md)) {
+        font-size: em(24 * 2);
+    }
+}
+
+h2 {
+    color: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    font-size: em(18);
+
+    //color: #003379;
+    opacity: 0.65;
+    //color: #0469b1;
+
+    @media (min-width: rem(@bp-sm)) {
+        font-size: em(24);
+    }
+    @media (min-width: rem(@bp-md)) {
+        font-size: em(32);
+    }
+}
+
+h3 {
+    color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+}

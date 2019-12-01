@@ -1,0 +1,46 @@
+@import '../variables.less';
+
+.link-reset() {
+    color: inherit;
+    text-decoration: none;
+    background-image: none;
+
+    &:hover {
+        color: inherit;
+        background-image: none;
+        text-decoration: none;
+    }
+}
+
+.link-default() {
+    color: var(--link);
+    text-decoration: none;
+
+    @from-bottom: calc(100% - rem(1));
+    background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent @from-bottom,
+        var(--link) @from-bottom
+    );
+}
+
+.link-hover() {
+    outline: none;
+    color: var(--link-focus);
+    @from-bottom: calc(100% - rem(2));
+    background-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent @from-bottom,
+        var(--link-focus) @from-bottom
+    );
+}
+
+a {
+    .link-default();
+
+    &:hover {
+        .link-hover();
+    }
+}
