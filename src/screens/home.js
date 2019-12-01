@@ -147,6 +147,7 @@ export default class HomeScreen extends React.Component {
                             const value = event.target.value;
                             this.setState({ time: value });
                         }}
+                        showMessage
                     />
                 </Section>
                 <Section removeMargin>
