@@ -3,6 +3,7 @@ import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 import { Header, HeaderProvider } from '../components/header';
 import HomeScreen from '../screens/home';
+import CharacterEditorScreen from '../screens/character-editor';
 
 const HeaderNavigation = ({ children }) => (
     <HeaderProvider>
@@ -23,6 +24,7 @@ const RouteScreen = ({ path, exact, component, ...props }) => {
 export const Screens = () => (
     <HeaderNavigation>
         <Switch>
+            <RouteScreen path='/character-editor' component={CharacterEditorScreen} />
             <RouteScreen path='/' component={HomeScreen} />
         </Switch>
     </HeaderNavigation>
