@@ -39,6 +39,7 @@
         display: flex;
         flex-wrap: wrap;
         padding: 0 1%;
+        user-select: none;
 
         & > * {
             @padding: 2%;
@@ -46,7 +47,7 @@
             position: relative;
             border-radius: 100%;
             margin: @padding;
-
+            user-select: none;
             &::before {
                 content: '';
                 padding-top: 100%;
@@ -69,13 +70,16 @@
                 background-color: @oc-yellow-7;
                 opacity: 0;
                 transition: 0.25s;
-                transform: scale(0.1);
+                will-change: opacity;
+                //transform: scale(0.1);
             }
 
             &.active::after {
                 opacity: 1;
-                transform: scale(1);
+                //transform: scale(1);
             }
         }
     }
+
+    
 }
